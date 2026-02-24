@@ -5,6 +5,7 @@ import numpy as np
 from model.activation_func import *
 from model.mnist_data import mnist
 
+from scripts.patterns import pattern
 from scripts.display_number import display_number
 
 class mlp_generator:
@@ -41,11 +42,9 @@ class mlp_generator:
         self.X = self.X - learning_rate * dX
         self.X = np.clip(self.X, 0.0, 1.0)
 
-    def generate(self, number):
-        self.X = np.random.random((784, 1))
-        self.X = np.full((784, 1), 0)
-        # self.X = mnist.test.img[1].T
-        # self.X = self.X.reshape((784, 1))
+    def generate(self, number, pattern=pattern.black):
+        self.X = pattern
+
         display_number(self.X)
         self.target = np.full((10, 1), 0)
         self.target[number, 0] = 1 + random.uniform(0.0001, 0.01)
