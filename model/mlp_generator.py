@@ -47,7 +47,7 @@ class mlp_generator:
 
         display_number(self.X)
         self.target = np.full((10, 1), 0)
-        self.target[number, 0] = 1 + random.uniform(0.0001, 0.01)
+        self.target[number, 0] = 1
 
         for i in range(10000):
             self.gradient_descent(0.2)

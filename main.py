@@ -15,7 +15,7 @@ mnist_classifier = load_model(training=False)
 classifier_window = drawing_window(mnist_classifier)
 
 mnist_generator = mlp_generator(mnist_classifier)
-img = mnist_generator.generate(3, pattern.chessboard)
+img = mnist_generator.generate(3, pattern.chessboard())
 display_number(img)
 #=====================================================
 # display_number(mnist.train.img[0])
