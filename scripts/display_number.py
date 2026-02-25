@@ -8,5 +8,5 @@ def display_number(X):
     if pixels.shape != (28, 28):
         pixels = pixels.reshape((28, 28))
 
-    plt.imshow(pixels, cmap='gray')
+    plt.imshow(pixels, cmap='gray', vmin=0, vmax=1)
     plt.show()

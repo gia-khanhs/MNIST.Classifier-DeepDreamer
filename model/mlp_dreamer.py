@@ -6,7 +6,6 @@ from model.activation_func import *
 from model.mnist_data import mnist
 
 from scripts.patterns import pattern
-from scripts.display_number import display_number
 
 class mlp_generator:
     def __init__(self, mlp_classifier):
@@ -45,12 +44,11 @@ class mlp_generator:
     def generate(self, number, pattern=pattern.black):
         self.X = pattern
 
-        display_number(self.X)
         self.target = np.full((10, 1), 0)
         self.target[number, 0] = 1
 
-        for i in range(10000):
-            self.gradient_descent(0.2)
+        for i in range(1000):
+            self.gradient_descent(0.5)
 
         prediction, prob = self.mlp_classifier.predict(self.X)
         print(prediction)
