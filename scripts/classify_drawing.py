@@ -52,6 +52,10 @@ class drawing_window:
         plt.xlabel(f"Predicted digit: {y[0][0]}")
         plt.ylabel(yLabel, rotation=0, labelpad=20)
 
+    def get_img(self):
+        img = self.img.reshape((784, 1))
+        return img
+
     def run(self):
         self.prepare_gui()
         
@@ -72,3 +76,5 @@ class drawing_window:
         self.fig.canvas.mpl_connect("motion_notify_event", on_move)
 
         plt.show()
+
+        return self.get_img()

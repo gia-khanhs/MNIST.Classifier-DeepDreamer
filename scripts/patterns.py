@@ -46,4 +46,4 @@ class _pattern:
 
         return mnist.test.img[i].reshape((784, 1))
     
-pattern = _pattern()
+Pattern = _pattern()

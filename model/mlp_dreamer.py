@@ -5,7 +5,7 @@ import numpy as np
 from model.activation_func import *
 from model.mnist_data import mnist
 
-from scripts.patterns import pattern
+from scripts.patterns import Pattern
 
 class mlp_generator:
     def __init__(self, mlp_classifier):
@@ -41,7 +41,7 @@ class mlp_generator:
         self.X = self.X - learning_rate * dX
         self.X = np.clip(self.X, 0.0, 1.0)
 
-    def generate(self, number, pattern=pattern.black):
+    def generate(self, number, pattern=Pattern.black):
         self.X = pattern
 
         self.target = np.full((10, 1), 0)
